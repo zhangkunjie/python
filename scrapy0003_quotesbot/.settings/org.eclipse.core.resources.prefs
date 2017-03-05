@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//quotesbot/items.py=utf-8
+encoding//quotesbot/pipelines.py=utf-8
+encoding//quotesbot/spiders/toscrape-css.py=utf-8
+encoding//quotesbot/spiders/toscrape-xpath.py=utf-8
