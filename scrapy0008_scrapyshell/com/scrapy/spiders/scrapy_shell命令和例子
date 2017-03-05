@@ -1,0 +1,16 @@
+1文档地址：https://doc.scrapy.org/en/latest/topics/commands.html
+ Available Scrapy objects:
+   crawler    <scrapy.crawler.Crawler object at 0x1e16b50>
+   item       {}
+   request    <GET http://scrapy.org>
+   response   <200 http://scrapy.org>
+   sel        <Selector xpath=None data=u'<html>\n  <head>\n    <meta charset="utf-8'>
+   settings   <scrapy.settings.Settings object at 0x2bfd650>
+   spider     <Spider 'default' at 0x20c6f50>
+ Useful shortcuts:
+   shelp()           Shell help (print this help)
+   fetch(req_or_url) Fetch request (or URL) and update local objects
+   view(response)    View response in a browser
+3命令行使用 
+scrapy  shell "http://quotes.toscrape.com/"
+sel.css(".tag::text").extract()[1]
