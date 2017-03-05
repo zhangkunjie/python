@@ -1,0 +1,24 @@
+1文档地址：https://doc.scrapy.org/en/latest/topics/commands.html
+  bench         Run quick benchmark test
+  check         Check spider contracts
+  commands      
+  crawl         Run a spider
+  edit          Edit spider
+  fetch         Fetch a URL using the Scrapy downloader
+  genspider     Generate new spider using pre-defined templates
+  list          List available spiders
+  parse         Parse URL (using its spider) and print the results
+  runspider     Run a self-contained spider (without creating a project)
+  settings      Get settings values
+  shell         Interactive scraping console
+  startproject  Create new project
+  version       Print Scrapy version
+  view          Open URL in browser, as seen by Scrapy
+ 2常用命令：
+ 创建项目:scrapy startproject myproject
+ shell  scrapy shell 'http://quotes.toscrape.com/page/1/'
+ response.css('title')
+ response.css("div.quote")
+ scrapy crawl quotes -o quotes.json
+ 
+
