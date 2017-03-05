@@ -1,0 +1,22 @@
+设置
+下面是控制AutoThrottle扩展的设置:
+    AUTOTHROTTLE_ENABLED
+    AUTOTHROTTLE_START_DELAY
+    AUTOTHROTTLE_MAX_DELAY
+    AUTOTHROTTLE_DEBUG
+    CONCURRENT_REQUESTS_PER_DOMAIN
+    CONCURRENT_REQUESTS_PER_IP
+    DOWNLOAD_DELAY
+更多内容请参考 限速算法 。
+AUTOTHROTTLE_ENABLED
+默认: False
+启用AutoThrottle扩展。
+AUTOTHROTTLE_START_DELAY
+默认: 5.0
+初始下载延迟(单位:秒)。
+AUTOTHROTTLE_MAX_DELAY
+默认: 60.0
+在高延迟情况下最大的下载延迟(单位秒)。
+AUTOTHROTTLE_DEBUG
+默认: False
+起用AutoThrottle调试(debug)模式，展示每个接收到的response。 您可以通过此来查看限速参数是如何实时被调整的。
