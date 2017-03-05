@@ -1,0 +1,17 @@
+内存泄漏的调试方法：
+方法1：prefs()
+telnet localhost 6023
+prefs()
+看到：
+SomenastySpider                     1   oldest: 15s ago
+HtmlResponse                     3890   oldest: 265s ago
+Selector                            2   oldest: 0s ago
+Request                          3878   oldest: 250s ago
+查看时间较长的HtmlResponse
+from scrapy.utils.trackref import get_oldest
+r = get_oldest('HtmlResponse')
+r.url
+方法2：使用Guppy调试内存泄露
+pip install guppy
+x = hpy.heap()
+x.bytype
