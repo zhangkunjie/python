@@ -1,0 +1,32 @@
+文档地址:
+http://scrapyd.readthedocs.io/en/stable/index.html
+1安装scrapyd,注意1.2.0a1开始支持python3
+pip install scrapyd==1.2.0a1
+pip install scrapyd-client=1.1.0
+2启动scrapyd
+命令行输入:scrapyd
+3配置scrapy-cfg
+deploy:target的名称
+project=项目名称
+url=scrapyd部署的地址
+例子：
+[deploy:apps]
+url = http://localhost:6800/
+project = app
+4部署项目
+进入到项目目录下执行
+scrapyd-deploy apps -p app
+5查看部署姓名列表：
+scrapyd-deploy -l
+6查看项目列表
+curl http://localhost:6800/listprojects.json
+7查看spider列表
+curl http://localhost:6800/listspiders.json?project=app
+8调度任务
+curl http://localhost:6800/schedule.json -d project=app -d spider=appspider
+9查看任务
+curl http://localhost:6800/listjobs.json?project=app
+10取消任务
+curl http://localhost:6800/cancel.json -d project=app -d job=c68a737efbd311e6b904000c294f8a19
+11删除项目
+curl http://localhost:6800/delproject.json -d project=app
