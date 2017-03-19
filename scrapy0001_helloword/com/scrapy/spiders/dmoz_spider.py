@@ -1,6 +1,8 @@
 import scrapy
 
-from com.scrapy import DmozItem
+from com.scrapy.items import DmozItem
+
+
 class DmozSpider(scrapy.Spider):
     name = "dmoz"
     allowed_domains = ["dmoz.org"]
