@@ -9,9 +9,70 @@ def dbHandle():
         return conn
 class WriteToMysqlPipeline(object):
     def process_item(self, item, spider):
+     if spider.name=='fundInfoSpider':
         dbObject =dbHandle()
         cursor = dbObject.cursor()
-        sql = "insert into position (j_id,url,name,category,address,c_id,c_url,c_name,industry,financing_stage,money,experience,education) values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-        cursor.execute(sql,(item['j_id'],item['url'],item['name'],item['category'],item['address'],item['c_id'],item['c_url'],item['c_name'],item['industry'],item['financing_stage'],item['money'],item['experience'],item['education']))
+        sql=('''insert into fund_info
+        (
+        fund_id,
+        name,
+        type,
+        scale,
+        manager,
+        setup_date,
+        admin,
+        grade,
+        trade_first_status,
+        trade_sencond_status  
+        )
+        values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)''')
+        cursor.execute(
+        sql,
+        (
+        item['fund_id'],
+        item['name'],
+        item['type'],
+        item['scale'],
+        item['manager'],
+        item['setup_date'],
+        item['admin'],
+        item['grade'],
+        item['trade_first_status'],
+        item['trade_sencond_status']
+         ))
         dbObject.commit()
-        return item   
+        cursor.close()
+        dbObject.close()
+     elif  spider.name=='fundValueSpider':
+            dbObject =dbHandle()
+            cursor = dbObject.cursor()
+            sql=('''insert into fund_value
+            (
+            fund_id,
+            name,
+            netvalue_date,
+            netvalue,
+            cumulativevalue,
+            daily_growth_rate,
+            apply_status,
+            redeem_status,
+            bonus
+            )
+            values (%s,%s,%s,%s,%s,%s,%s,%s,%s)''')
+            cursor.execute(
+            sql,
+            (
+            item['fund_id'],
+            item['name'],
+            item['netvalue_date'],
+            item['netvalue'],
+            item['cumulativevalue'],
+            item['daily_growth_rate'],
+            item['apply_status'],
+            item['redeem_status'],
+            item['bonus']
+             ))
+            dbObject.commit()
+            cursor.close()
+            dbObject.close()
+     return item

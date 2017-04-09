@@ -7,19 +7,39 @@
 
 import scrapy
 
-class JobInfoItems(scrapy.Item):
+class FundInfoItems(scrapy.Item):
     # define the fields for your item here like:
-    j_id=scrapy.Field()
-    url= scrapy.Field()
+    fund_id=scrapy.Field()
     name= scrapy.Field()
-    category=scrapy.Field()
-    address= scrapy.Field()
-    c_id=scrapy.Field()
-    c_url= scrapy.Field()
-    c_name= scrapy.Field()
-    industry= scrapy.Field()
-    financing_stage= scrapy.Field()
-    money= scrapy.Field()
-    experience= scrapy.Field()
-    education= scrapy.Field()
+    name= scrapy.Field()
+    estimate_value=scrapy.Field()
+    estimate_value_rose= scrapy.Field()
+    unit_value=scrapy.Field()
+    unit_value_rose= scrapy.Field()
+    cumulative_value= scrapy.Field()
+    last_month= scrapy.Field()
+    last_3_month= scrapy.Field()
+    last_half_year= scrapy.Field()
+    last_year= scrapy.Field()
+    last_3_yesr= scrapy.Field()
+    set_up= scrapy.Field()
+    type= scrapy.Field()
+    scale= scrapy.Field()
+    manager= scrapy.Field()
+    setup_date= scrapy.Field()
+    admin= scrapy.Field()
+    grade= scrapy.Field()
+    trade_first_status= scrapy.Field()
+    trade_sencond_status= scrapy.Field()
+    pass
+class FundValueItems(scrapy.Item):
+    fund_id=scrapy.Field()
+    name=scrapy.Field()
+    netvalue_date=scrapy.Field()
+    netvalue=scrapy.Field()
+    cumulativevalue=scrapy.Field()
+    daily_growth_rate=scrapy.Field()
+    apply_status=scrapy.Field()
+    redeem_status=scrapy.Field()
+    bonus=scrapy.Field()
     pass
