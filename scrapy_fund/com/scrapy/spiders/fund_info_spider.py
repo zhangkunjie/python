@@ -6,12 +6,13 @@ class FundSpider(scrapy.Spider):
     #start_urls = ['http://fund.eastmoney.com/000007.html']
     start_urls = ['http://fund.eastmoney.com/allfund.html']
     def parse(self, response):
-        fund_info_list=response.css(".b>div")
+        fund_info_list=response.css(".num_right>li>div")
+        #f=open("/Users/user/Desktop/fund_info","w+")
         for fund in fund_info_list:
             #print(fund.css("a::attr(href)").extract_first())
             fund_detail_url=fund.css("a::attr(href)").extract_first()
             yield scrapy.Request(fund_detail_url,
-                              callback=self.pares_fund_detail)
+                   callback=self.pares_fund_detail)
     def pares_fund_detail(self,response):   
         fundInfoItem=FundInfoItems()
         #基金id和基金名称
